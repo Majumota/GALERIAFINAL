@@ -1,16 +1,19 @@
 var obras = [];
 var artistas = [];
 var clientes = [];
+var idObraAMostrar;
+var idClienteAMostrar;
+var idArtistaAMostrar;
 
 function crearObra() {
-    var idExpo = document.getElementById("E_ID").innerHTML;
-    var idGaleria = document.getElementById("G_ID");
-    var idObra = document.getElementById("artid");
-    var idArtista = document.getElementById("artistid");
-    var tituloObra = document.getElementById("title");
-    var tecnicaObra = document.getElementById("type_of_art");
-    var añoObra = document.getElementById("year");
-    var precioObra = document.getElementById("price");
+    var idExpo = document.getElementById("E_ID").value;
+    var idGaleria = document.getElementById("G_ID").value;
+    var idObra = document.getElementById("artid").value;
+    var idArtista = document.getElementById("artistid").value;
+    var tituloObra = document.getElementById("title").value;
+    var tecnicaObra = document.getElementById("type_of_art").value;
+    var añoObra = document.getElementById("year").value;
+    var precioObra = document.getElementById("price").value;
 
     var obra1 = new Obra(idExpo,idGaleria,idObra,
         idArtista,tituloObra,tecnicaObra,añoObra,precioObra);
@@ -18,6 +21,17 @@ function crearObra() {
 }
 
 function buscarObra() {
+    var idObraABuscar = document.getElementById("buscarObra").value;
+
+    for(var i=0;i<obras.length;i++) {
+        var idObra = obras[i].idObra;
+        if (idObraABuscar.equals(idObra)) {
+            idObraAMostrar = idObraABuscar;
+        }
+    }
+}
+
+function mostrarObra() {
 
 }
 
@@ -26,26 +40,29 @@ function eliminarObra() {
 }
 
 function registrarCliente () {
-    var idCliente = document.getElementById("custid");
-    var nombre = document.getElementById("fname");
-    var apellidoP = document.getElementById("lname");
-    var apellidoM = document.getElementById("lname1");
-    var correo = document.getElementById("mailCliente");
-    var tel = document.getElementById("telCliente");
+    var idCliente = document.getElementById("custid").value;
+    var nombre = document.getElementById("fname").value;
+    var apellidoP = document.getElementById("lname").value;
+    var apellidoM = document.getElementById("lname1").value;
+    var correo = document.getElementById("mailCliente").value;
+    var tel = document.getElementById("telCliente").value;
 
     var cliente1 = new Cliente(idCliente,nombre,apellidoP,apellidoM,correo,tel);
     clientes.add(cliente1);
 }
 
 function buscarCliente() {
-    
+    var idClienteABuscar = document.getElementById("buscarCliente").value;
+
+    for(var i=0;i<clientes.length;i++) {
+        var idCliente = clientes[i].idCliente;
+        if (idClienteABuscar.equals(idCliente)) {
+            idClienteAMostrar = idClienteABuscar;
+        }
+    }
 }
 
-function eliminarCliente() {
-
-}
-
-function añadirArtista() {
+function mostrarCliente(){
 
 }
 
@@ -53,12 +70,42 @@ function ComprasCliente() {
 
 }
 
+function eliminarCliente() {
+
+}
+
+function añadirArtista() {
+    var idArtista = document.getElementById("artistid").value;
+    var nombre = document.getElementById("fname1").value;
+    var apellidoP = document.getElementById("lname1").value;
+    var apellidoM = document.getElementById("lname2").value;
+    var tel = document.getElementById("tel").value;
+    var correo = document.getElementById("mail").value;
+    var fecha = document.getElementById("birthplace").value;
+    var reseña = document.getElementById("reseña").value;
+    var cantObras = document.getElementById("cantObras").value;
+
+    var artista1 = new Artista(idArtista,nombre,apellidoP,apellidoM,tel,correo,fecha,reseña,cantObras);
+    artistas.add(artista1);
+}
+
 function buscarArtista() {
+    var idArtistaABuscar = document.getElementById("buscarArtista").value;
+
+    for(var i=0;i<artistas.length;i++) {
+        var idArtista = artistas[i].idArtista;
+        if (idArtistaABuscar.equals(idArtista)) {
+            idArtistaAMostrar = idArtistaABuscar;
+        }
+    }
+}
+
+function mostrarObra() {
 
 }
 
 function eliminarArtista() {
-
+    
 }
 
 class Cliente {

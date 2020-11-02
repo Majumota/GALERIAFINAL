@@ -5,7 +5,8 @@
 	<meta charset="UTF-8"/>
 	<meta name = "keywords" content="Galeria de arte Vivaldi" > 
 	<title>BUSCAR INFORMACIÓN CLIENTE</title>
-	<link href="estiloBusqueda.css" rel="stylesheet"> 
+  <link href="estiloBusqueda.css" rel="stylesheet"> 
+  <script type = "text/javascript" src="codigoProyecto.js"></script>
 		  	
 </head>
 <body>
@@ -19,7 +20,7 @@
     <label for="buscarCliente"><b>ID del cliente</b></label><br>
     <input type="text" placeholder="Ingrese el ID del cliente" name="buscarCliente" required><br>
 	<hr>
-    <button type="submit" class="buscarClientebtn">INFORMACIÓN CLIENTE</button>
+    <button type="button" onclick="buscarCliente()" class="buscarClientebtn">INFORMACIÓN CLIENTE</button>
     <button type="reset" class="registerbtn1">RESET</button>
     </center>
   </div>
