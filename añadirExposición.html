@@ -5,18 +5,21 @@
 	<meta charset="UTF-8"/>
 	<meta name = "keywords" content="Galeria de arte Vivaldi" > 
 	<title>EXPOSICIÓN</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script type = "text/javascript" src="codigoProyecto.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<link href="estiloAñadirExposición.css" rel="stylesheet"> 
+
 </head>
 <body>
 
 <form ACTION="einsert.php"METHOD="POST">
   <div class="container">
-    <center><h1 style="color:#3366cc" size="30";><font style="border: 10px solid grey; padding: 19px;">FILL THE FORM WITH PROPER DETAILS</font></h1></center>
-    <hr>
-    <center>
+
+	<fieldset>
+    <center><h1 style="color:teal" size="60";>Ingrese los datos del artista</h1></center>
+	</fieldset>   
+	<hr>
+	<center>
     <label for="E_ID"><b>Exhibition ID</b></label><br>
     <input type="text" placeholder="Enter Exhibition ID" name="E_ID" required>
     <br>
@@ -37,6 +40,7 @@
     <button type="submit" class="registerbtn">SUBMIT</button>
     <button type="reset" class="registerbtn1">RESET</button>
     </center>
+  
   </div>
 </form>
 
