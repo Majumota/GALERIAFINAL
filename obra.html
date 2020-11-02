@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+	<meta charset="UTF-8"/>
+	<meta name = "keywords" content="Galeria de arte Vivaldi" > 
+	<title> OBRAS </title>
+
+	<!--Llamo archivos externos, CSS -->
+	<link rel= "stylesheet" type="text/css" href="estiloObra.css"> 	
+	
+</head>
+
+<body>
+
+<!-- CSS -->
+
+<style>
+
+body{ 
+background: url("https://s3.amazonaws.com/rtvc-assets-radionacional.co/s3fs-public/senalradio/articulo-noticia/galeriaimagen/11026068_764489293648525_7732660098474156043_o.jpg") no-repeat;
+background-size:cover;
+font-family:Verdana;
+color:teal;
+}
+
+b{
+font-family: Century Gothic;
+color:powderblue;
+font-size:50px;
+text-align: center;
+font-weight: bold;
+}
+
+
+ul{
+	margin:3pc;
+	padding:0.1px;
+	list-style:none;	
+	text-align: center;
+	}
+ul li{
+	float:initial;
+	width:450px;
+	height:80px;
+	background-color:teal;
+	opacity:.8;
+	line-height:40px;
+	text-align:center;
+	font-size:50px;
+	margin-bottom: 16px;
+	display: inline-block;
+}
+ul li a{
+	text-decoration:underline;
+	text-align: center;
+	font-family: Century Gothic; 
+	font-weight: bold;
+	font-size: 30px;
+	color:white;
+	display:inline-block;
+}
+ul li a:hover{
+	 background-color: white;
+    color: black;
+	background-size: contain;
+}
+ul li ul li{
+	display:none;
+}
+ul li:hover ul li{
+	display:inline-block;
+}
+
+a{
+font-family: Century Gothic;
+font-size: 40px;
+color:powderblue;	
+font-weight: bold;
+text-align: center-right;
+}
+
+
+</style>
+
+	<!--Agrego info de letras -->
+	<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Aclonica'>
+	
+	<h1>
+	<center>
+	<h1 style="font-size: 40" "font-family:Aclonica"><font style="border: 14px groove powderblue;" color=teal><u>OBRAS</font></h1>
+	</center>	
+
+	<center><b>SELECCIONE LA OPCIÓN DESEADA</b></center>
+	<br>
+
+<ul>
+	<li><a href="añadirObra.html" >Añadir Obra </a></li>
+	<li><a href="artsearch.php">Buscar obra</a></li>
+	<li><a href="artdisplay.php">Buscar información de la obra</a></li>
+	<li><a href="artdelete.php">Eliminar obra </a></li>
+</ul>
+</h1>
+
+	<p>
+		<a href="paginaPrincipal.html">INCIO</a>
+	</p>
+
+</body>
+</html>

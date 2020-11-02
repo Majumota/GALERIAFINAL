@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+	<meta charset="UTF-8"/>
+	<meta name = "keywords" content="Galeria de arte Vivaldi" > 
+	<title>REGISTRO CLIENTE</title>
+	
+</head>
+<body>
+
+<!--CSS -->
+
+<style>
+
+h1{
+    border: 10px blue;
+    border-radius: 28px;
+    padding: 19px;
+	font-family: Century Gothic;
+	font-style: teal;
+}
+
+fieldset {
+
+border: 10px solid powderblue;
+}
+
+body {
+    font-family: Century Gothic;
+    background-color: teal;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    padding: 19px;
+    background-color: snow;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=year]
+ {
+    width: 50%;
+    padding: 19px;
+    margin: 5px 0 32px 0;
+    display: inline-block;
+    border-radius: 8px;
+    border: 2px powderblue;
+    background: #f1f1f0;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+input[type=text]:focus, input[type=text]:focus {
+    background-color: #ffffff;
+    outline: none;
+}
+
+hr {
+    border: 1.5px solid #f1f1f1;
+    margin-bottom: 35px;
+}
+.registerbtn{
+    background-color: forestgreen;
+    color: white;
+    padding: 16px 10px;
+    margin: 8px 20px 20px 50px;
+    border-radius: 24px;
+    cursor: pointer;
+    width: 15%;
+    opacity: 0.7;
+    align-content: center;
+    font-family: Century Gothic;
+    font-weight: bold;
+    -webkit-box-shadow: 0px 6px 0px green;
+    -moz-box-shadow: 0px 6px 0px green;
+    box-shadow: 0px 6px 0px green;
+    -webkit-transition: all .1s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    -webkit-transform: translate(0, 5px) rotateX(25deg);
+    -moz-transform: translate(0, 4px);
+    transform: translate(0, 4px)
+    }
+.registerbtn:hover 
+{
+    opacity: 1;
+    background-color:forestgreen;
+}
+
+.registerbtn1{
+    background-color: red;
+    color: white;
+    padding: 16px 10px;
+    margin: 8px 20px 20px 50px;
+    border-radius: 24px;
+    cursor: pointer;
+    width: 15%;
+    opacity: 0.7;
+    align-content: center;
+    font-family: Century Gothic;
+    font-weight: bold;
+    -webkit-box-shadow: 0px 6px 0px darkred;
+    -moz-box-shadow: 0px 6px 0px darkred;
+    box-shadow: 0px 6px 0px darkred;
+    -webkit-transition: all .1s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    -webkit-transform: translate(0, 5px) rotateX(25deg);
+    -moz-transform: translate(0, 4px);
+    transform: translate(0, 4px)
+    }
+.registerbtn1:hover 
+{
+    opacity: 1;
+    background-color:red;
+}
+
+label{
+    font-weight: bold;
+    font-size: 20px;
+    font-family:Century Gothic;
+}
+
+p{
+font-family: Century Gothic;
+font-size: 40px;
+color: teal;	
+font-weight: bold;
+text-align: center-right;
+}
+
+</style>
+<form ACTION="cinsert.php"METHOD="POST">
+  <div class="container">
+    <fieldset>
+    <center><h1 style="color:teal" size="60";>Ingrese los datos del cliente</h1></center>
+	</fieldset>
+	<hr>
+    <center>
+    <label for="custid"><b>ID Cliente</b></label><br>
+    <input type="text" placeholder="ID Cliente" name="custid" required><br>
+
+    <label for="fname"><b>Nombre</b></label><br>
+    <input type="text" placeholder="Enter First Name" name="fname" required><br>
+
+    <label for="lname"><b>Apellido Paterno</b></label><br>
+    <input type="text" placeholder="Apellido paterno" name="lname" required><br>
+	
+	<label for="lname1"><b>Apellido Materno</b></label><br>
+    <input type="text" placeholder="Apellido Materno" name="lname1" required><br>
+
+    <label for="address"><b>Correo eléctronico</b></label><br>
+    <input type="text" placeholder="Correo" name="mailCliente" required><br>
+
+    <label for="telCliente"><b>Teléfono</b></label><br>
+    <input type="text" placeholder="Teléfono" name="telCliente" required><br>
+
+    <button type="submit" class="registerbtn">SUBMIT</button>
+    <button type="reset" class="registerbtn1">RESET</button>
+    </center>
+  </div>
+</form>
+
+	<p>
+		<a href="paginaPrincipal.html">INICIO</a>
+	</p>
+
+</body>
+</html>
