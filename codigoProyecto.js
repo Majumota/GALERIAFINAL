@@ -32,7 +32,14 @@ function buscarObra() {
 }
 
 function mostrarObra() {
-
+    document.getElementById("idExpo").innerHTML;
+    document.getElementById("idGaleria").innerHTML ;
+    document.getElementById("idObra").innerHTML;
+    document.getElementById("idArtista").innerHTML ;
+    document.getElementById("titulo").innerHTML ;
+    document.getElementById("tecnica").innerHTML ;
+    document.getElementById("fecha").innerHTML ;
+    document.getElementById("precio").innerHTML ;
 }
 
 function eliminarObra() {
@@ -63,7 +70,12 @@ function buscarCliente() {
 }
 
 function mostrarCliente(){
-
+    document.getElementById("idCliente").innerHTML;
+    document.getElementById("nombreCliente").innerHTML ;
+    document.getElementById("apellidoClienteP").innerHTML;
+    document.getElementById("apellidoClienteM").innerHTML ;
+    document.getElementById("correoCliente").innerHTML ;
+    document.getElementById("telCliente").innerHTML ;
 }
 
 function ComprasCliente() {
@@ -100,8 +112,16 @@ function buscarArtista() {
     }
 }
 
-function mostrarObra() {
-
+function mostrarArtista() {
+    document.getElementById("idArtista").innerHTML;
+    document.getElementById("nombreArtista").innerHTML ;
+    document.getElementById("apellidoArtistaP").innerHTML;
+    document.getElementById("apellidoArtistaM").innerHTML ;
+    document.getElementById("telArtista").innerHTML ;
+    document.getElementById("correoArtista").innerHTML ;
+    document.getElementById("fechaArtista").innerHTML ;
+    document.getElementById("reseñaArtista").innerHTML ;
+    document.getElementById("numeroObrasArtista").innerHTML;
 }
 
 function eliminarArtista() {
