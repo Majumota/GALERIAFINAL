@@ -2,18 +2,18 @@ var obras = [];
 var artistas = [];
 var clientes = [];
 
-var idExpoAñadirO = document.getElementById("E_ID").innerHTML;
-var idGaleriaAñadirO = document.getElementById("G_ID");
-var idObraAñadirO = document.getElementById("artid");
-var idArtistaAñadirO = document.getElementById("artistid");
-var tituloObra = document.getElementById("title");
-var tecnicaObra = document.getElementById("type_of_art");
-var añoObra = document.getElementById("year");
-var precioObra = document.getElementById("price");
-
 function crearObra() {
-    var obra1 = new Obra(idExpoAñadirO,idGaleriaAñadirO,idObraAñadirO,
-        idArtistaAñadirO,tituloObra,tecnicaObra,añoObra,precioObra);
+    var idExpo = document.getElementById("E_ID").innerHTML;
+    var idGaleria = document.getElementById("G_ID");
+    var idObra = document.getElementById("artid");
+    var idArtista = document.getElementById("artistid");
+    var tituloObra = document.getElementById("title");
+    var tecnicaObra = document.getElementById("type_of_art");
+    var añoObra = document.getElementById("year");
+    var precioObra = document.getElementById("price");
+
+    var obra1 = new Obra(idExpo,idGaleria,idObra,
+        idArtista,tituloObra,tecnicaObra,añoObra,precioObra);
     obras.add(obra1);
 }
 
@@ -21,6 +21,45 @@ function buscarObra() {
 
 }
 
+function eliminarObra() {
+
+}
+
+function registrarCliente () {
+    var idCliente = document.getElementById("custid");
+    var nombre = document.getElementById("fname");
+    var apellidoP = document.getElementById("lname");
+    var apellidoM = document.getElementById("lname1");
+    var correo = document.getElementById("mailCliente");
+    var tel = document.getElementById("telCliente");
+
+    var cliente1 = new Cliente(idCliente,nombre,apellidoP,apellidoM,correo,tel);
+    clientes.add(cliente1);
+}
+
+function buscarCliente() {
+    
+}
+
+function eliminarCliente() {
+
+}
+
+function añadirArtista() {
+
+}
+
+function ComprasCliente() {
+
+}
+
+function buscarArtista() {
+
+}
+
+function eliminarArtista() {
+
+}
 
 class Cliente {
     Cliente (idCliente, nombre, apellidoP, apellidoM, correo, tel) {
