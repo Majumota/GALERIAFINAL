@@ -48,7 +48,7 @@ hr {
     border: 1.5px solid #f1f1f1;
     margin-bottom: 35px;
 }
-.buscarArtistabtn,.buscarClientebtn,.buscarObrabtn{
+.buscarArtistabtn,.buscarClientebtn,.buscarObrabtn,.buscarExposiciónbtn{
     background-color: forestgreen;
     color: white;
     padding: 16px 10px;
@@ -70,7 +70,7 @@ hr {
     -moz-transform: translate(0, 4px);
     transform: translate(0, 4px)
     }
-.registerbtn:hover 
+.buscarArtistabtn,.buscarClientebtn,.buscarObrabtn,.buscarExposiciónbtn:hover 
 {
     opacity: 1;
     background-color:forestgreen;
