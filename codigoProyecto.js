@@ -4,6 +4,8 @@ var clientes = [];
 var idObraAMostrar;
 var idClienteAMostrar;
 var idArtistaAMostrar;
+var idComprador;
+var idObraComprada;
 
 function crearObra() {
     var idExpo = document.getElementById("E_ID").value;
@@ -79,7 +81,13 @@ function mostrarCliente(){
 }
 
 function ComprasCliente() {
-    
+    idComprador = document.getElementById("idComprador").value;
+    idObraComprada = document.getElementById("idObraComprada").value;
+}
+
+function verCompra() {
+    document.getElementById("verIdComprador").innerHTML = idComprador;
+    document.getElementById("verIdObraComprada").innerHTML = idObraComprada;
 }
 
 function eliminarCliente() {
