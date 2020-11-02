@@ -1,15 +1,48 @@
 var obras = [];
 var artistas = [];
 var clientes = [];
+var exposiciones = [];
 var idObraAMostrar;
 var idClienteAMostrar;
 var idArtistaAMostrar;
 var idComprador;
 var idObraComprada;
+var idExpoAMostrar;
+
+function añadirExposicion() {
+    var idExpo = document.getElementById("E_ID").value;
+    var fechaS = document.getElementById("startdate").value;
+    var fechaF = document.getElementById("enddate").value;
+    var obrasAMostrar = document.getElementById("mostrarObra").value;
+
+    var expo1 = new Exposicion(idExpo, fechaS, fechaF, obrasAMostrar);
+    exposiciones.add(expo1);
+}
+
+function buscarExposicion() {
+    var idExpoABuscar = document.getElementById("buscarExposicion").value;
+
+    for(var i=0;i<exposiciones.length;i++) {
+        var idExpo = exposiciones[i].idExpo;
+        if (idExpoABuscar.equals(idExpo)) {
+            idExpoAMostrar = idExpoABuscar;
+        }
+    }
+}
+
+function verExposicion() {
+    document.getElementById("idExposicion").innerHTML;
+    document.getElementById("startdate").innerHTML;
+    document.getElementById("enddate").innerHTML;
+    document.getElementById("mostrarObra").innerHTML;
+}
+
+function eliminarExposicion() {
+
+}
 
 function crearObra() {
     var idExpo = document.getElementById("E_ID").value;
-    var idGaleria = document.getElementById("G_ID").value;
     var idObra = document.getElementById("artid").value;
     var idArtista = document.getElementById("artistid").value;
     var tituloObra = document.getElementById("title").value;
@@ -17,7 +50,7 @@ function crearObra() {
     var añoObra = document.getElementById("year").value;
     var precioObra = document.getElementById("price").value;
 
-    var obra1 = new Obra(idExpo,idGaleria,idObra,
+    var obra1 = new Obra(idExpo,idObra,
         idArtista,tituloObra,tecnicaObra,añoObra,precioObra);
     obras.add(obra1);
 }
@@ -35,20 +68,19 @@ function buscarObra() {
 
 function mostrarObra() {
     document.getElementById("idExpo").innerHTML;
-    document.getElementById("idGaleria").innerHTML ;
     document.getElementById("idObra").innerHTML;
-    document.getElementById("idArtista").innerHTML ;
-    document.getElementById("titulo").innerHTML ;
-    document.getElementById("tecnica").innerHTML ;
-    document.getElementById("fecha").innerHTML ;
-    document.getElementById("precio").innerHTML ;
-}
+    document.getElementById("idArtista").innerHTML;
+    document.getElementById("titulo").innerHTML;
+    document.getElementById("tecnica").innerHTML;
+    document.getElementById("fecha").innerHTML;
+    document.getElementById("precio").innerHTML;
+} 
 
 function eliminarObra() {
 
 }
 
-function registrarCliente () {
+function registrarCliente() {
     var idCliente = document.getElementById("custid").value;
     var nombre = document.getElementById("fname").value;
     var apellidoP = document.getElementById("lname").value;
@@ -163,9 +195,8 @@ class Artista {
 
 class Obra {
     //atributes
-   Obra (idExpo, idGaleria, idObra, idArtista, titulo, tecnica, fecha, precio) {
+   Obra (idExpo, idObra, idArtista, titulo, tecnica, fecha, precio) {
        this.idExpo = idExpo;
-       this.idGaleria = idGaleria;
        this.idObra = idObra;
        this.idArtista = idArtista;
        this.titulo = titulo;
@@ -174,4 +205,13 @@ class Obra {
        this.precio = precio;
    }
   
+}
+
+class Exposicion {
+    Exposicion(idExpo, fechaS, fechaF, obrasAMostrar) {
+        this.idExpo = idExpo;
+        this.fechaS = fechaS;
+        this.fechaF = fechaF;
+        this.obrasAMostrar = obrasAMostrar;
+    }
 }

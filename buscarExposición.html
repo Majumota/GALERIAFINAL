@@ -5,7 +5,8 @@
 	<meta charset="UTF-8"/>
 	<meta name = "keywords" content="Galeria de arte Vivaldi" > 
 	<title>BUSCAR EXPOSICIÓN</title>
-	<link href="estiloBusqueda.css" rel="stylesheet"> 
+  <link href="estiloBusqueda.css" rel="stylesheet"> 
+  <script type = "text/javascript" src="codigoProyecto.js"></script> 
 		  	
 </head>
 <body>
@@ -17,9 +18,9 @@
     <hr>
     <center>
     <label for="buscarObra"><b>ID de la exposición</b></label><br>
-    <input type="text" placeholder="Ingrese el ID de la exposición" name="buscarExposición" required><br>
+    <input type="text" placeholder="Ingrese el ID de la exposición" name="buscarExposicion" required><br>
 	<hr>
-    <button type="submit" class="buscarExposiciónbtn">INFORMACIÓN DE LA EXPOSICIÓN</button>
+    <button type="button" href="verExposicion.html" OnClick="buscarExposicion" class="buscarExposiciónbtn">INFORMACIÓN DE LA EXPOSICIÓN</button>
     <button type="reset" class="registerbtn1">RESET</button>
     </center>
   </div>
