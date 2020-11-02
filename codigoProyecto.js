@@ -1,4 +1,6 @@
-
+var obras = [];
+var artistas = [];
+var clientes = [];
 
 var idExpoAñadirO = document.getElementById("E_ID").innerHTML;
 var idGaleriaAñadirO = document.getElementById("G_ID");
@@ -10,8 +12,15 @@ var añoObra = document.getElementById("year");
 var precioObra = document.getElementById("price");
 
 function crearObra() {
+    var obra1 = new Obra(idExpoAñadirO,idGaleriaAñadirO,idObraAñadirO,
+        idArtistaAñadirO,tituloObra,tecnicaObra,añoObra,precioObra);
+    obras.add(obra1);
+}
+
+function buscarObra() {
 
 }
+
 
 class Cliente {
     Cliente (idCliente, nombre, apellidoP, apellidoM, correo, tel) {
