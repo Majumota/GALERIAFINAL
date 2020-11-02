@@ -79,7 +79,7 @@ function mostrarCliente(){
 }
 
 function ComprasCliente() {
-
+    
 }
 
 function eliminarCliente() {
