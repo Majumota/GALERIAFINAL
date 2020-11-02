@@ -1,3 +1,5 @@
+
+
 var obras = [];
 var artistas = [];
 var clientes = [];
