@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name = "keywords" content="Galeria de arte Vivaldi" > 
+	<title>COMPRA</title>
+	
+	<link href="estiloComprasCliente.css" rel="stylesheet"> 
+	
+</head>
+
+<body>
+
+<form ACTION="artistinsert.php"METHOD="POST">
+  <div class="container">
+  
+	<fieldset>
+    <center><h1 style="color:teal" size="60";>Ingrese los datos para la compra</h1></center>
+	</fieldset>   
+   <hr>
+   
+   <center>
+    <label for="idComprador"><b>ID Cliente</b></label><br>
+    <input type="text" placeholder="ID Artista" name="idComprador" required><br>
+   
+    <label for="idObraComprada"><b>ID Obra</b></label><br>
+    <input type="text" placeholder="Número de obras" name="idObraComprada" required><br>
+    <hr>
+
+    <button type="submit" class="comprabtn">COMPRAR OBRA</button>
+    <button type="reset" class="registerbtn1">RESET</button>
+    </center>
+  </div>
+</form>
+
+	<p>
+		<a href="paginaPrincipal.html">INICIO</a>
+	</p>
+
+</body>
+</html>
