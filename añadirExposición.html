@@ -4,37 +4,21 @@
 
 	<meta charset="UTF-8"/>
 	<meta name = "keywords" content="Galeria de arte Vivaldi" > 
-	<title>AÑADIR OBRA</title>
+	<title>EXPOSICIÓN</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	
-	<link href="estiloAñadirObras.css" rel="stylesheet"> 
-		
-	  	
-</head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<body>
-
-<!--Agregar CSS -->
+	<link href="estiloAñadirExposición.css" rel="stylesheet"> 
 
 <style>
-
 h1{
-    border: 10px blue;
+    border: 10px solid grey;
     border-radius: 28px;
     padding: 19px;
-	font-family: Century Gothic;
-	font-style: teal;
-}
-
-fieldset {
-
-border: 10px solid powderblue;
 }
 
 body {
-    font-family: Century Gothic;
-    background-color: teal;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
 }
 
 * {
@@ -46,21 +30,33 @@ body {
     background-color: snow;
 }
 
-/* Full-width input fields */
-input[type=text], input[type=year]
+input[type=date] {
+    width: 17%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 9px;
+    font-size: 18px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 20px 20px 22px 10px;
+    font-weight: bold;
+    font-size: 25px;
+}
+input[type=text], input[type=number]
  {
     width: 50%;
     padding: 19px;
     margin: 5px 0 32px 0;
     display: inline-block;
     border-radius: 8px;
-    border: 2px powderblue;
+    border: 2px solid grey;
     background: #f1f1f0;
     font-weight: bold;
     font-size: 19px;
 }
 
-input[type=text]:focus, input[type=text]:focus {
+input[type=text]:focus,input[type=number]:focus {
     background-color: #ffffff;
     outline: none;
 }
@@ -79,7 +75,7 @@ hr {
     width: 15%;
     opacity: 0.7;
     align-content: center;
-    font-family: Century Gothic;
+    font-family: "verdana";
     font-weight: bold;
     -webkit-box-shadow: 0px 6px 0px green;
     -moz-box-shadow: 0px 6px 0px green;
@@ -107,7 +103,7 @@ hr {
     width: 15%;
     opacity: 0.7;
     align-content: center;
-    font-family: Century Gothic;
+    font-family: "verdana";
     font-weight: bold;
     -webkit-box-shadow: 0px 6px 0px darkred;
     -moz-box-shadow: 0px 6px 0px darkred;
@@ -128,49 +124,32 @@ hr {
 label{
     font-weight: bold;
     font-size: 20px;
-    font-family:Century Gothic;
+    font-family: 'verdana';
 }
-
-p{
-font-family: Century Gothic;
-font-size: 40px;
-color: teal;	
-font-weight: bold;
-text-align: center-right;
-}
-
 </style>
+</head>
+<body>
 
-<form ACTION="artinsert.php"METHOD="POST">
+<form ACTION="einsert.php"METHOD="POST">
   <div class="container">
-	<fieldset>
-    <center><h1 style="color:teal" size="60";>Ingrese los datos de la obra</h1></center>
-	</fieldset>
+    <center><h1 style="color:#3366cc" size="30";><font style="border: 10px solid grey; padding: 19px;">FILL THE FORM WITH PROPER DETAILS</font></h1></center>
     <hr>
     <center>
-    <label for="E_ID"><b>ID de Exposición</b></label><br>
-    <input type="text" placeholder="Ingrese el ID de la exposición" name="E_ID" required><br>
+    <label for="E_ID"><b>Exhibition ID</b></label><br>
+    <input type="text" placeholder="Enter Exhibition ID" name="E_ID" required>
+    <br>
 
-    <label for="G_ID"><b>ID Galería</b></label><br>
-    <input type="text" placeholder="Ingrese el ID de la galería" name="G_ID" required><br>
+    <label for="G_ID"><b>Gallery ID</b></label><br>
+    <input type="text" placeholder="Enter Gallery ID" name="G_ID" required><br>
 
-    <label for="artid"><b>ID de la obra</b></label><br>
-    <input type="text" placeholder="Ingrese el ID de la obra" name="artid" required><br>
+    <label for="startdate"><b>Start Date</b></label><br><br>
+    <input type="date" placeholder="Enter Start Date" name="startdate" required>
+    <br>
+    <br>
+    <br>
 
-    <label for="artistid"><b>ID del artista</b></label><br>
-    <input type="text" placeholder="Ingrese el ID del artista" name="artistid" required><br>
-
-    <label for="title"><b>Titulo de la obra</b></label><br>
-    <input type="text" placeholder="Ingrese el titulo de la obra" name="title" required><br>
-
-    <label for="type_of_art"><b>Técnica</b></label><br>
-    <input type="text" placeholder="Ingrese la técnica de la obra" name="type_of_art" required><br>
-
-    <label for="year"><b>Año de publicación</b></label><br>
-    <input type="year" placeholder="Ingrese el año de publicación de la obra" name="year" required><br>
-
-    <label for="price"><b>Precio de la obra</b></label><br>
-    <input type="text" placeholder="Ingrese el precio de la obra" name="price" required><br>
+    <label for="enddate"><b>End Date</b></label><br><br>
+    <input type="date" placeholder="Enter End Date" name="enddate" required><br>
     <hr>
 
     <button type="submit" class="registerbtn">SUBMIT</button>
@@ -178,10 +157,6 @@ text-align: center-right;
     </center>
   </div>
 </form>
-
-	<p>
-		<a href="paginaPrincipal.html">INICIO</a>
-	</p>
 
 </body>
 </html>

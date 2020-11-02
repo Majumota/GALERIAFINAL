@@ -1,0 +1,1 @@
+SELECT * FROM galeria_de_arte.exposición;

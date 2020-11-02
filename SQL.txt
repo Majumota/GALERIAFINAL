@@ -1,0 +1,81 @@
+CREATE TABLE `artista` (
+  `idArtista` int NOT NULL,
+  `Nombre` varchar(45) NOT NULL,
+  `Apellido_Paterno` varchar(45) NOT NULL,
+  `Apellido_Materno` varchar(45) DEFAULT NULL,
+  `Teléfono` varchar(45) NOT NULL,
+  `Correo` varchar(45) NOT NULL,
+  `Reseña_Artista` varchar(400) NOT NULL,
+  `Número_Obras` int NOT NULL,
+  `Fecha_Nacimiento` date NOT NULL,
+  PRIMARY KEY (`idArtista`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `administrador` (
+  `Usuario` varchar(45) NOT NULL,
+  `Contraseña` varchar(45) NOT NULL,
+  `Correo` varchar(45) NOT NULL,
+  `Controla` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`Usuario`),
+  KEY `Controla_idx` (`Controla`),
+  CONSTRAINT `Controla` FOREIGN KEY (`Controla`) REFERENCES `tiene` (`Controla`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `cliente` (
+  `idCliente` int NOT NULL,
+  `Nombre` varchar(45) NOT NULL,
+  `Apellido_Paterno` varchar(45) NOT NULL,
+  `Apellido_Materno` varchar(45) DEFAULT NULL,
+  `Teléfono` varchar(45) NOT NULL,
+  `Correo` varchar(45) NOT NULL,
+  PRIMARY KEY (`idCliente`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `compra` (
+  `idCompra` int NOT NULL,
+  `Monto` varchar(45) NOT NULL,
+  `Método_Pago` varchar(45) NOT NULL,
+  `Comisión` varchar(45) NOT NULL,
+  `idObra` int NOT NULL,
+  `idCliente` int NOT NULL,
+  PRIMARY KEY (`idCompra`),
+  KEY `idObra_idx` (`idObra`),
+  KEY `idCliente_idx` (`idCliente`),
+  CONSTRAINT `idCliente` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`),
+  CONSTRAINT `idObra` FOREIGN KEY (`idObra`) REFERENCES `obra` (`idObra`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `exposición` (
+  `idExposición` int NOT NULL,
+  `Nombre` varchar(45) NOT NULL,
+  `Fecha_Inicio` varchar(45) NOT NULL,
+  `Fecha_Final` varchar(45) NOT NULL,
+  `Obras_a_mostrar` varchar(45) NOT NULL,
+  `idObra` int NOT NULL,
+  PRIMARY KEY (`idExposición`),
+  KEY `idObra_idx` (`idObra`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `obra` (
+  `idObra` int NOT NULL,
+  `Titulo_Obra` varchar(45) NOT NULL,
+  `Descripción` varchar(45) NOT NULL,
+  `idArtista` int NOT NULL,
+  `Precio` float NOT NULL,
+  PRIMARY KEY (`idObra`),
+  KEY `idArtista_idx` (`idArtista`) /*!80000 INVISIBLE */,
+  KEY `idObra_idx` (`idObra`),
+  KEY `Titulo_Obra_idx` (`Titulo_Obra`),
+  CONSTRAINT `idArtista` FOREIGN KEY (`idArtista`) REFERENCES `artista` (`idArtista`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+CREATE TABLE `tiene` (
+  `Controla` varchar(45) NOT NULL,
+  `Titulo_Obra` varchar(45) NOT NULL,
+  `idExposición` int NOT NULL,
+  PRIMARY KEY (`Controla`),
+  KEY `idExposición_idx` (`idExposición`),
+  KEY `Titulo_Obra_idx` (`Titulo_Obra`),
+  CONSTRAINT `idExposición` FOREIGN KEY (`idExposición`) REFERENCES `exposición` (`idExposición`),
+  CONSTRAINT `Titulo_Obra` FOREIGN KEY (`Titulo_Obra`) REFERENCES `obra` (`Titulo_Obra`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
