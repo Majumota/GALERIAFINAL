@@ -1,4 +1,10 @@
-
+var mysql = require('mysql');
+var con = mysql.createConnection({
+    host:"localhost",
+    user:"root",
+    password:"gositogordo",
+    database:"Galeria_de_arte"
+});
 
 var obras = [];
 var artistas = [];
@@ -19,6 +25,16 @@ function añadirExposicion() {
 
     var expo1 = new Exposicion(idExpo, fechaS, fechaF, obrasAMostrar);
     exposiciones.add(expo1);
+
+    con.connect(function(err) {
+        if (err) throw err;
+        console.log("Connected!");
+        var sql = "INSERT INTO exposicíon (idExposicíon,Fecha_Inicio,Fecha_Final,Obras_a_mostrar) VAlUES"+idExpo+fechaS+fechaF+obrasAMostrar;
+        con.query(sql, function (err, result) {
+            if (err) throw err;
+            console.log("1 record inserted");
+        });
+    });
 }
 
 function buscarExposicion() {
@@ -33,14 +49,34 @@ function buscarExposicion() {
 }
 
 function verExposicion() {
-    document.getElementById("idExposicion").innerHTML;
-    document.getElementById("startdate").innerHTML;
-    document.getElementById("enddate").innerHTML;
-    document.getElementById("mostrarObra").innerHTML;
+    var idExpo;
+    var fechaS;
+    var fechaF;
+    var obrasAMostrar;
+
+    con.connect(function(err) {
+        if (err) throw err;
+        con.query("SELECT idExposicíon,Fecha_Inicio,Fecha_Final,Obras_a_mostrar FROM exposicíon", function (err, result, fields) {
+          if (err) throw err;
+            for (var i=0;i<obras.length;i++) {
+                if (idExpoAMostrar == result[i].idExposicíon) {
+                    idExpo = result[i].idExposicíon;
+                    fechaS = result[i].Fecha_Inicio;
+                    fechaF = result[i].Fecha_Final;
+                    obrasAMostrar = result[i].Obras_a_mostrar;
+                }
+            }
+        });
+    });
+
+    document.getElementById("idExposicion").innerHTML = idExpo;
+    document.getElementById("startdate").innerHTML = fechaS;
+    document.getElementById("enddate").innerHTML = fechaF;
+    document.getElementById("mostrarObra").innerHTML = obrasAMostrar;
 }
 
 function eliminarExposicion() {
-
+    
 }
 
 function crearObra() {
@@ -55,6 +91,19 @@ function crearObra() {
     var obra1 = new Obra(idExpo,idObra,
         idArtista,tituloObra,tecnicaObra,añoObra,precioObra);
     obras.add(obra1);
+
+    var descripcion = ""+tecnicaObra.value+añoObra.value;
+
+    con.connect(function(err) {
+        if (err) throw err;
+        console.log("Connected!");
+        var sql = "INSERT INTO obra (idObra,Titulo_Obra,Descripcion,IdArtista,precio,IdExpo) VAlUES"
+        +idObra+tituloObra+descripcion+idArtista+precioObra+idExpo;
+        con.query(sql, function (err, result) {
+            if (err) throw err;
+            console.log("1 record inserted");
+        });
+    });
 }
 
 function buscarObra() {
@@ -69,13 +118,36 @@ function buscarObra() {
 }
 
 function mostrarObra() {
-    document.getElementById("idExpo").innerHTML;
-    document.getElementById("idObra").innerHTML;
-    document.getElementById("idArtista").innerHTML;
-    document.getElementById("titulo").innerHTML;
-    document.getElementById("tecnica").innerHTML;
-    document.getElementById("fecha").innerHTML;
-    document.getElementById("precio").innerHTML;
+    var idExpo;
+    var idObra;
+    var idArtista;
+    var titulo;
+    var descripcion;
+    var precio;
+
+    con.connect(function(err) {
+        if (err) throw err;
+        con.query("SELECT idExpo,idObra,Descripcion,Titulo_Obra,idArtista,Precio FROM obra", function (err, result, fields) {
+          if (err) throw err;
+            for (var i=0;i<obras.length;i++) {
+                if (idObraAMostrar == result[i].idObra) {
+                    idExpo = result[i].idExpo;
+                    idObra = result[i].idObra;
+                    idArtista = result[i].idArtista;
+                    titulo = result[i].Titulo_Obra;
+                    descripcion = result[i].Descripcion;
+                    precio = result[i].Precio;
+                }
+            }
+        });
+    });
+
+    document.getElementById("idExpo").innerHTML = idExpo;
+    document.getElementById("idObra").innerHTML = idObra;
+    document.getElementById("idArtista").innerHTML = idArtista;
+    document.getElementById("titulo").innerHTML = titulo;
+    document.getElementById("descripcion").innerHTML = descripcion;
+    document.getElementById("precio").innerHTML = precio;
 } 
 
 function eliminarObra() {
@@ -92,6 +164,17 @@ function registrarCliente() {
 
     var cliente1 = new Cliente(idCliente,nombre,apellidoP,apellidoM,correo,tel);
     clientes.add(cliente1);
+
+    con.connect(function(err) {
+        if (err) throw err;
+        console.log("Connected!");
+        var sql = "INSERT INTO cliente (idCliente,Nombre,Apellido_Paterno,Apellido_Materno,Teléfono,Correo) VAlUES"
+        +idCliente+nombre+apellidoP+apellidoM+tel+correo;
+        con.query(sql, function (err, result) {
+            if (err) throw err;
+            console.log("1 record inserted");
+        });
+    });    
 }
 
 function buscarCliente() {
@@ -106,12 +189,36 @@ function buscarCliente() {
 }
 
 function mostrarCliente(){
-    document.getElementById("idCliente").innerHTML;
-    document.getElementById("nombreCliente").innerHTML ;
-    document.getElementById("apellidoClienteP").innerHTML;
-    document.getElementById("apellidoClienteM").innerHTML ;
-    document.getElementById("correoCliente").innerHTML ;
-    document.getElementById("telCliente").innerHTML ;
+    var idCliente;
+    var nombre;
+    var apelidoP;
+    var apellidoM;
+    var tel;
+    var correo;
+
+    con.connect(function(err) {
+        if (err) throw err;
+        con.query("SELECT idCliente,Nombre,Apellido_Paterno,Apellido_Materno,Teléfono,Correo FROM cliente", function (err, result, fields) {
+          if (err) throw err;
+            for (var i=0;i<obras.length;i++) {
+                if (idClienteAMostrar == result[i].idCliente) {
+                    idCliente = result[i].idCliente;
+                    nombre = result[i].Nombre;
+                    apelidoP = result[i].Apellido_Paterno;
+                    apellidoM = result[i].Apellido_Materno;
+                    tel = result[i].Teléfono;
+                    correo = result[i].Correo;
+                }
+            }
+        });
+    });
+
+    document.getElementById("idCliente").innerHTML = idCliente;
+    document.getElementById("nombreCliente").innerHTML = nombre;
+    document.getElementById("apellidoClienteP").innerHTML = apellidoP;
+    document.getElementById("apellidoClienteM").innerHTML = apellidoM;
+    document.getElementById("correoCliente").innerHTML = correo;
+    document.getElementById("telCliente").innerHTML = tel;
 }
 
 function ComprasCliente() {
@@ -141,6 +248,17 @@ function añadirArtista() {
 
     var artista1 = new Artista(idArtista,nombre,apellidoP,apellidoM,tel,correo,fecha,reseña,cantObras);
     artistas.add(artista1);
+
+    con.connect(function(err) {
+        if (err) throw err;
+        console.log("Connected!");
+        var sql = "INSERT INTO artista (idArtista,Nombre,Apellido_Paterno,Apellido_Materno,Teléfono,Correo,Reseña_Artista,Número_Obras,Fecha_Nacimiento) VAlUES"
+        +idArtista+nombre+apellidoP+apellidoM+tel+correo+reseña+cantObras+fecha;
+        con.query(sql, function (err, result) {
+            if (err) throw err;
+            console.log("1 record inserted");
+        });
+    });
 }
 
 function buscarArtista() {
@@ -155,15 +273,45 @@ function buscarArtista() {
 }
 
 function mostrarArtista() {
-    document.getElementById("idArtista").innerHTML;
-    document.getElementById("nombreArtista").innerHTML ;
-    document.getElementById("apellidoArtistaP").innerHTML;
-    document.getElementById("apellidoArtistaM").innerHTML ;
-    document.getElementById("telArtista").innerHTML ;
-    document.getElementById("correoArtista").innerHTML ;
-    document.getElementById("fechaArtista").innerHTML ;
-    document.getElementById("reseñaArtista").innerHTML ;
-    document.getElementById("numeroObrasArtista").innerHTML;
+    var idArtista;
+    var nombre;
+    var apellidoP;
+    var apellidoM;
+    var tel;
+    var correo;
+    var fecha;
+    var reseña;
+    var cantObras;
+
+    con.connect(function(err) {
+        if (err) throw err;
+        con.query("SELECT idArtista,Nombre,Apellido_Paterno,Apellido_Materno,Teléfono,Correo,Reseña_Artista,Número_Obras,Fecha_Nacimiento FROM obra", function (err, result, fields) {
+          if (err) throw err;
+            for (var i=0;i<obras.length;i++) {
+                if (idArtistaAMostrar == result[i].idArtista) {
+                    idArtista = result[i].idArtista;
+                    nombre = result[i].Nombre;
+                    apellidoP = result[i].Apellido_Paterno;
+                    apellidoM = result[i].Apellido_Materno;
+                    tel = result[i].Teléfono;
+                    correo = result[i].Correo;
+                    fecha = result[i].Fecha_Nacimiento;
+                    reseña = result[i].Reseña_Artista;
+                    cantObras = result[i].Número_Obras;
+                }
+            }
+        });
+    });
+
+    document.getElementById("idArtista").innerHTML = idArtista;
+    document.getElementById("nombreArtista").innerHTML = nombre;
+    document.getElementById("apellidoArtistaP").innerHTML = apellidoP;
+    document.getElementById("apellidoArtistaM").innerHTML = apellidoM;
+    document.getElementById("telArtista").innerHTML = tel;
+    document.getElementById("correoArtista").innerHTML = correo;
+    document.getElementById("fechaArtista").innerHTML = fecha;
+    document.getElementById("reseñaArtista").innerHTML = reseña;
+    document.getElementById("numeroObrasArtista").innerHTML = cantObras;
 }
 
 function eliminarArtista() {
